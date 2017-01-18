@@ -5,6 +5,30 @@ angular.module('chatroom').service('messageService', function($http){
   //The url for the get request should be 'https://practiceapi.devmounta.in/api/chats'
   //Be sure to return whatever gets returned from $http so you can call .then in your controller.
 
+  var BASE_URL = 'https://practiceapi.devmounta.in/api/chats';
+  this.getMessages = function(){
+    return $http({
+      method: 'GET',
+      url: BASE_URL
+    })
+  }
+  this.postMessages = function(message){
+    return $http({
+      method: 'POST',
+      url: BASE_URL,
+      data:
+      {
+        message: message
+      }
+    })
+  }
+
+  this.getCookies = function(){
+    return $http({
+      method: 'POST',
+      url: 'https://practiceapi.devmounta.in/api/cookies',
+    })
+  }
 
 
 
